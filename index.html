@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<title>Portal Institucional</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="img/favicon.ico">
+
+<link rel="stylesheet" href="css/grid.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<!-- Melhorias isoladas de notícias e aparência do carrossel, carregadas por último. -->
+<link rel="stylesheet" href="css/noticias.css?v=20260812-6">
+<!-- Botões 600×400 dos tiles de texto rico. -->
+<link rel="stylesheet" href="css/botoes.css?v=20260812-7">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- VLibras -->
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+<div id="wrapper">
+
+<!-- =========================
+     TOPBAR ACESSIBILIDADE
+     accesskey 1=conteúdo 2=menu 3=busca 4=rodapé
+========================= -->
+<div id="topbar">
+    <div class="topbar-container">
+
+        <div class="topbar-left">
+            <a href="#main-content" accesskey="1" title="Ir para o conteúdo [1]">Ir para o conteúdo <kbd>1</kbd></a>
+            <span aria-hidden="true">|</span>
+            <a href="#main-navigation" accesskey="2" title="Ir para o menu [2]">Ir para o menu <kbd>2</kbd></a>
+            <span aria-hidden="true">|</span>
+            <a href="#portal-searchbox" accesskey="3" title="Ir para a busca [3]">Ir para a busca <kbd>3</kbd></a>
+            <span aria-hidden="true">|</span>
+            <a href="#footer-info" accesskey="4" title="Ir para o rodapé [4]">Ir para o rodapé <kbd>4</kbd></a>
+        </div>
+
+        <div class="topbar-right">
+            <div class="topbar-icons" id="topbar-icons">
+
+                <a href="/sitemap" id="sitemap-button" title="Mapa do site">
+                    <i class="fa fa-sitemap" aria-hidden="true"></i>
+                    <span class="sr-only">Mapa do site</span>
+                </a>
+
+                <button id="decrease-font" title="Diminuir fonte" aria-label="Diminuir fonte">A-</button>
+                <button id="reset-font"    title="Fonte padrão"  aria-label="Fonte padrão">A</button>
+                <button id="increase-font" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+
+                <button id="toggle-contrast" title="Alto contraste" aria-label="Alternar alto contraste">
+                    <i class="fa fa-adjust" aria-hidden="true"></i>
+                </button>
+
+                <a href="/institucional/informacoes-ao-cidadao/acessibilidade" id="acessibility-button" title="Acessibilidade">
+                    <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+                    <span class="sr-only">Acessibilidade</span>
+                </a>
+
+            </div>
+
+            <!-- User – substituído pelo Plone via rules.xml -->
+            <div id="user">
+                <ul>
+                    <li><a href="#" title="Login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div><!-- /#topbar -->
+
+<!-- =========================
+     HEADER
+========================= -->
+<header id="topo" role="banner">
+
+    <div class="header-container">
+
+        <a id="portal-logo" href="#" class="has-title">
+            <img src="img/logo.png" alt="Câmara Municipal de Pontal do Paraná">
+        </a>
+
+        <!-- Site actions – substituído pelo Plone -->
+        <ul id="siteactions"></ul>
+
+        <div class="header-actions">
+
+            <!-- SEARCH – substituído pelo Plone via rules.xml -->
+            <div id="search">
+                <div id="portal-searchbox">
+                    <input type="text" name="SearchableText" placeholder="Pesquisar no portal" aria-label="Pesquisar no portal">
+                    <button type="submit" aria-label="Pesquisar">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- LOGIN -->
+            <a href="/login" class="login-button">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                Acessar
+            </a>
+
+        </div>
+    </div>
+
+    <!-- MENU PRINCIPAL – itens substituídos pelo Plone via rules.xml -->
+    <nav id="main-navigation" role="navigation" aria-label="Menu principal">
+        <ul class="menu-root">
+
+            <li>
+                <a href="#">Início</a>
+            </li>
+
+            <li class="has-submenu">
+                <button class="submenu-toggle" aria-haspopup="true" aria-expanded="false">
+                    Institucional <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="submenu-panel" role="region">
+                    <div class="submenu-column">
+                        <h3>Institucional</h3>
+                        <a href="#">Mesa Diretora</a>
+                        <a href="#">Comissões</a>
+                        <a href="#">Ouvidoria</a>
+                        <a href="#">Estrutura Organizacional</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="has-submenu transparencia">
+                <button class="submenu-toggle" aria-haspopup="true" aria-expanded="false">
+                    Transparência <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="submenu-panel" role="region">
+                    <div class="submenu-column">
+                        <h3>Portal da Transparência</h3>
+                        <a href="#">Receitas e despesas</a>
+                        <a href="#">Licitações</a>
+                        <a href="#">LGPD</a>
+                        <a href="#">Servidores</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="has-submenu">
+                <button class="submenu-toggle" aria-haspopup="true" aria-expanded="false">
+                    Vereadores <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="submenu-panel" role="region">
+                    <div class="submenu-column">
+                        <h3>Vereadores</h3>
+                        <a href="#">Quem são</a>
+                        <a href="#">Sessões</a>
+                        <a href="#">Frentes Parlamentares</a>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </nav>
+
+    <!-- Botão menu mobile – injetado pelo JS -->
+</header>
+
+<!-- BREADCRUMB -->
+<div id="portal-breadcrumbs">
+    <span id="breadcrumbs-you-are-here">Você está em:</span>
+    <span id="breadcrumbs-home"><a href="#">Início</a> <span class="breadcrumbSeparator">/</span></span>
+</div>
+
+<!-- =========================
+     CONTEÚDO PRINCIPAL
+========================= -->
+<div id="main" role="main">
+
+    <aside id="column-one">
+        <div class="visualPadding">
+            <!-- Portlets coluna esquerda – substituídos pelo Plone -->
+            <div class="portletWrapper">
+                <dl class="portlet portletNavigationTree">
+                    <dt class="portletHeader">
+                        <span class="portletTopLeft"></span>
+                        <a href="#" class="tile">Navegação</a>
+                        <span class="portletTopRight"></span>
+                    </dt>
+                    <dd class="portletItem lastItem">
+                        <ul class="navTree navTreeLevel0">
+                            <li class="navTreeItem visualNoMarker"><div><a href="#" class="state-published">Item de menu</a></div></li>
+                        </ul>
+                        <span class="portletBottomLeft"></span>
+                        <span class="portletBottomRight"></span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+        <!-- Conteúdo substituído pelo Plone -->
+        <h1>Portal Legislativo</h1>
+        <p>Câmara Municipal de Pontal do Paraná.</p>
+    </main>
+
+    <aside id="column-two">
+        <div class="visualPadding">
+            <!-- Portlets coluna direita – substituídos pelo Plone -->
+        </div>
+    </aside>
+
+</div><!-- /#main -->
+
+<!-- FOOTER -->
+<footer role="contentinfo" id="footer-total">
+    <div id="footer-info" class="footer-item" tabindex="-1">Plone footer text</div>
+    <div id="footer-colophon" class="footer-item"></div>
+</footer>
+
+</div><!-- /#wrapper -->
+
+<script src="javascript/function.js?v=20260812-6"></script>
+<!-- Não altera o dropdown nem a inicialização original do Galleria. -->
+<script src="javascript/noticias.js?v=20260812-6"></script>
+<!-- Qualidade e proporção 3:2 dos botões, sem interferir nos demais módulos. -->
+<script src="javascript/botoes.js?v=20260812-7"></script>
+
+</body>
+</html>

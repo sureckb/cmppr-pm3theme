@@ -1,0 +1,173 @@
+/* ===================================
+   RESPONSIVO – camara-de-pontal-do-parana-2026
+=================================== */
+
+/* ---- Tablet paisagem ---- */
+@media (max-width: 1100px) {
+
+    .header-container {
+        padding: 8px 20px;
+    }
+
+    #portal-searchbox,
+    #search #portal-searchbox {
+        width: 260px;
+    }
+
+}
+
+/* ---- Tablet retrato ---- */
+@media (max-width: 900px) {
+
+    /* Menu vira coluna + botão hamburguer */
+    .menu-button {
+        display: block;
+    }
+
+    /* Nav oculto em mobile, aparece via JS */
+    #main-navigation > ul,
+    #main-navigation .menu-root {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        display: none; /* JS faz slideToggle */
+    }
+
+    #main-navigation > ul.menu-aberto,
+    #main-navigation .menu-root.menu-aberto {
+        display: flex;
+    }
+
+    #main-navigation .menu-root > li,
+    #main-navigation > ul > li {
+        width: 100%;
+    }
+
+    #main-navigation .menu-root > li > a,
+    #main-navigation > ul > li > a,
+    #main-navigation .submenu-toggle {
+        width: 100%;
+        justify-content: space-between;
+        border-top: 1px solid rgba(255,255,255,.08);
+        height: auto;
+        padding: 14px 20px;
+    }
+
+    /* Submenu mobile – estático */
+    .submenu-panel {
+        position: static;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 16px 20px;
+        background: #f8fafc;
+    }
+
+    .transparencia {
+        margin-left: 0;
+    }
+
+    /* Separadores de itens desabilitados */
+    #main-navigation > ul > li::after {
+        display: none;
+    }
+
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+
+    .topbar-container {
+        padding: 6px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .topbar-left {
+        gap: 6px;
+    }
+
+    .topbar-left kbd {
+        display: none; /* evita poluição em telas pequenas */
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 16px;
+        gap: 10px;
+    }
+
+    #portal-logo img {
+        height: 64px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    #portal-searchbox,
+    #search #portal-searchbox {
+        width: 100%;
+        flex: 1;
+    }
+
+    #portal-breadcrumbs {
+        padding: 10px 16px;
+    }
+
+    /* Tile de notícias: 1 coluna em mobile */
+    .tile-noticias .collection-item {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #main-content {
+        padding: 24px 18px;
+    }
+
+    .footer-item {
+        padding: 0 16px;
+    }
+
+    .colophon-item {
+        max-width: 96%;
+        margin: 1rem 2%;
+    }
+
+}
+
+/* ---- Mobile pequeno ---- */
+@media (max-width: 480px) {
+
+    /* Botões de imagem: 2 por linha */
+    #main-content a.image-button {
+        flex: 0 0 calc(50% - 8px);
+        max-width: calc(50% - 8px);
+        min-width: 0;
+    }
+
+    #main-content .image-buttons-row {
+        gap: 10px;
+    }
+
+}
+
+/* ---- Tela muito pequena (< 360px) ---- */
+@media (max-width: 360px) {
+
+    /* Botões de imagem: 1 por linha centralizado */
+    #main-content a.image-button {
+        flex: 0 0 100%;
+        max-width: 200px;
+        min-width: 0;
+        margin: 0 auto;
+    }
+
+    #main-content .image-buttons-row {
+        justify-content: center;
+    }
+
+}

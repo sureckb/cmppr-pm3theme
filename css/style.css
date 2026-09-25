@@ -1,0 +1,1112 @@
+@import url("grid.css");
+@import url("../../../contraste.css");
+
+/* ===================================
+   RESET BÁSICO
+=================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===================================
+   BODY
+=================================== */
+
+body {
+    background: #eef3f8;
+    color: #1e293b;
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    line-height: 1.5;
+}
+
+a:link,
+a:visited {
+    color: #1e3a8a;
+}
+
+a:hover {
+    color: #2563eb;
+}
+
+p {
+    line-height: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+/* ===================================
+   TOPBAR ACESSIBILIDADE
+=================================== */
+
+#topbar {
+    background: #0f172a;
+    color: white;
+    font-size: 13px;
+}
+
+.topbar-container {
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 8px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.topbar-left a {
+    color: white;
+    text-decoration: none;
+    opacity: .85;
+    transition: opacity .2s;
+    font-size: 12px;
+}
+
+.topbar-left a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* tecla de atalho visível */
+.topbar-left kbd {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 4px;
+    margin-left: 3px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 3px;
+    font-family: inherit;
+    line-height: 1.4;
+    vertical-align: middle;
+    opacity: .7;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ===================================
+   BOTÕES DE ACESSIBILIDADE (topbar)
+=================================== */
+
+.topbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.topbar-icons a,
+.topbar-icons button {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255,255,255,.1);
+    color: white;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+.topbar-icons a:hover,
+.topbar-icons button:hover {
+    background: rgba(255,255,255,.22);
+    transform: translateY(-1px);
+    color: white;
+}
+
+/* User portlet no topbar */
+#user {
+    font-size: 13px;
+}
+
+#user ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+}
+
+#user a {
+    color: white;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: rgba(255,255,255,.1);
+    transition: background .2s;
+}
+
+#user a:hover {
+    background: rgba(255,255,255,.2);
+}
+
+/* Personaltools do Plone */
+#portal-personaltools {
+    background: transparent;
+    font-size: 13px;
+}
+
+#portal-personaltools a,
+#portal-personaltools a:link,
+#portal-personaltools a:visited {
+    color: white;
+}
+
+/* ===================================
+   HEADER
+=================================== */
+
+#topo {
+    background: white;
+    box-shadow: 0 2px 20px rgba(0,0,0,.07);
+}
+
+.header-container {
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 8px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Logo */
+#portal-logo {
+    display: block;
+    flex-shrink: 0;
+}
+
+#portal-logo img {
+    height: 100px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+}
+
+/* Site actions (Plone) */
+#portal-siteactions,
+#siteactions {
+    display: none; /* oculto – integrado ao topbar via topbar-left */
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* ===================================
+   BUSCA
+=================================== */
+
+#portal-searchbox,
+#search #portal-searchbox {
+    position: relative;
+    width: 320px;
+}
+
+#portal-searchbox input,
+#portal-searchbox input.searchField {
+    width: 100%;
+    height: 44px;
+    border: none;
+    outline: none;
+    background: #f1f5f9;
+    border-radius: 12px;
+    padding: 0 50px 0 16px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: box-shadow .2s, background .2s;
+}
+
+#portal-searchbox input:focus {
+    background: #e8eef7;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.18);
+}
+
+/* O Plone injeta via rules.xml:
+   <input class="searchButton" type="submit" value="&#xf002;" alt="Buscar"/>
+   Então o "ícone" é o VALUE do input — precisa de font-family FontAwesome */
+#portal-searchbox button,
+#portal-searchbox .searchButton,
+input.searchButton {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 9px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-family: 'FontAwesome', 'Font Awesome 5 Free', 'Font Awesome 6 Free', sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 34px;
+    text-align: center;
+    padding: 0;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background .2s;
+}
+
+#portal-searchbox button:hover,
+#portal-searchbox .searchButton:hover,
+input.searchButton:hover {
+    background: #1d4ed8;
+}
+
+/* LOGIN */
+.login-button {
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 12px;
+    background: #1e3a8a;
+    color: white !important;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background .2s, transform .15s;
+    white-space: nowrap;
+}
+
+.login-button:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    color: white !important;
+}
+
+/* ===================================
+   MENU PRINCIPAL E DROPDOWN (Plone Native)
+=================================== */
+
+#main-navigation {
+    background: #1e3a8a;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Container alinhado */
+#main-navigation .menu-root,
+#main-navigation > ul {
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+/* Itens de primeiro nível */
+#main-navigation .menu-root > li,
+#main-navigation > ul > li {
+    position: relative;
+}
+
+/* Links do primeiro nível */
+#main-navigation .menu-root > li > a,
+#main-navigation > ul > li > a {
+    display: flex;
+    align-items: center;
+    height: 54px;
+    padding: 0 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background .2s, color .2s;
+    white-space: nowrap;
+}
+
+/* Hover no 1º nível */
+#main-navigation > ul > li > a:hover,
+#main-navigation > ul > li:hover > a,
+#main-navigation > ul > li.active > a {
+    background: rgba(255,255,255,.16);
+}
+
+/* Separador (Apenas Desktop) */
+@media (min-width: 901px) {
+    #main-navigation > ul > li::after {
+        content: '';
+        position: absolute;
+        margin: auto;
+        right: -1px;
+        top: 25%;
+        bottom: 25%;
+        background-color: rgba(255,255,255,.25);
+        width: 1px;
+    }
+    #main-navigation > ul > li:last-child::after {
+        display: none;
+    }
+}
+
+/* ===================================
+   SUBMENU (UL NATIVA DO PLONE)
+=================================== */
+
+#main-navigation ul.plone-submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 260px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-top: none;
+    padding: 8px 0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    display: none; /* Escondido por padrão */
+    z-index: 9999;
+}
+
+/* Links dentro do submenu */
+   /* #main-navigation ul.plone-submenu a {
+    display: block;
+    padding: 10px 18px;
+    color: #1e293b !important;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+    height: auto;
+    white-space: normal; /* Permite quebrar linha em títulos longos */
+    
+    #main-navigation ul.plone-submenu li { /* novo */
+    display: block;
+    width: 100%;
+    float: none;
+    clear: both;
+}
+
+    #main-navigation ul.plone-submenu a {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    white-space: normal; 
+    color: #1e293b !important;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+    
+}
+
+#main-navigation ul.plone-submenu a:hover {
+    background: #eff6ff;
+    color: #1e3a8a !important;
+    border-left-color: #2563eb;
+    padding-left: 22px;
+}
+
+/* --- COMPORTAMENTO DESKTOP --- */
+@media (min-width: 901px) {
+    /* 1º NÍVEL: Abre o submenu apenas ao passar o mouse */
+    #main-navigation > ul > li.has-submenu:hover > ul.plone-submenu {
+        display: block;
+    }
+
+    /* 2º NÍVEL EM DIANTE: Força a NÃO abrir no hover */
+    #main-navigation ul.plone-submenu li.has-submenu:hover > ul.plone-submenu {
+        display: none !important; 
+    }
+
+    /* 2º NÍVEL EM DIANTE: Abre SOMENTE quando a seta for clicada (ganhando a classe .active) */
+    #main-navigation ul.plone-submenu li.has-submenu.active > ul.plone-submenu {
+        display: block !important;
+        top: -1px; 
+        left: 100%; /* Abre para a direita */
+    }
+
+    /* Estilo e animação da seta no PC */
+    #main-navigation .seta-dropdown {
+        margin-left: 8px;
+        transition: transform 0.3s;
+        display: inline-block;
+        font-size: 11px;
+        padding: 4px;
+        cursor: pointer;
+    }
+    
+    /* Gira a seta do 1º nível no hover */
+    #main-navigation > ul > li.has-submenu:hover > a > .seta-dropdown {
+        transform: rotate(180deg);
+    }
+
+    /* Gira a seta dos subníveis no clique */
+    #main-navigation ul.plone-submenu li.has-submenu.active > a > .seta-dropdown {
+        transform: rotate(-90deg);
+    }
+}
+
+/* --- COMPORTAMENTO MOBILE --- */
+@media (max-width: 900px) {
+    #main-navigation ul.plone-submenu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: #f8fafc;
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Mostra o submenu quando a LI ganha a classe .active via JS */
+    #main-navigation li.has-submenu.active > ul.plone-submenu {
+        display: block;
+    }
+
+    /* Ajusta o link principal para dar espaço para a seta clicável não sobrepor o texto */
+    #main-navigation li.has-submenu > a {
+        position: relative;
+        padding-right: 60px; 
+    }
+
+    /* Transforma a seta numa grande área de clique à direita (Touch Area) */
+    #main-navigation .seta-dropdown {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 54px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.08);
+        border-left: 1px solid rgba(255,255,255,0.15);
+        transition: transform 0.3s, background 0.3s;
+        font-size: 14px;
+    }
+
+    /* Gira a seta e muda a cor quando aberto */
+    #main-navigation li.has-submenu.active > a > .seta-dropdown {
+        transform: rotate(180deg);
+        background: rgba(255,255,255,0.2);
+    }
+}
+
+/* ===================================
+   BOTÃO MENU MOBILE
+=================================== */
+
+/* Oculto no desktop — mostrado via @media no responsive.css */
+.menu-button {
+    display: none;
+    background: #1e3a8a;
+    width: 100%;
+    text-align: right;
+    padding: 6px 16px;
+}
+
+.menu-button button {
+    background: none;
+    border: 1px solid rgba(255,255,255,.5);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 1.4;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background .2s;
+}
+
+.menu-button button .fa-bars {
+    font-size: 16px;
+}
+
+.menu-button button:hover,
+.menu-button button.menuAtivo {
+    background: rgba(255,255,255,.15);
+}
+
+/* ===================================
+   BREADCRUMB
+=================================== */
+
+#portal-breadcrumbs {
+    max-width: 1550px;
+    margin: 14px auto 0;
+    padding: 0 30px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+#portal-breadcrumbs a {
+    color: #1e3a8a;
+    text-decoration: none;
+}
+
+#portal-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbSeparator {
+    margin: 0 6px;
+    color: #94a3b8;
+}
+
+.section-front-page #portal-breadcrumbs {
+    visibility: hidden;
+}
+
+/* ===================================
+   CONTEÚDO
+=================================== */
+
+#main-content {
+    background: white;
+    border-radius: 18px;
+    padding: 36px 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.05);
+    outline: none; /* tabindex=-1 sem anel visível */
+}
+
+#content {
+    margin: 0;
+}
+
+h1 {
+    color: #1e3a8a;
+    border: none;
+    margin-bottom: 0.4em;
+    font-size: 2.2em;
+    line-height: 1.2;
+}
+
+h2 {
+    color: #1e3a8a;
+    margin-top: 1.4em;
+}
+
+h3 { color: #1e3a8a; }
+
+#content .documentDescription,
+#content #description {
+    color: #4d4d4d;
+    font-weight: normal;
+    margin-bottom: 1em;
+}
+
+/* ===================================
+   CARROSSEL (Ajuste visual seguro para Galleria)
+=================================== */
+
+/* Removemos o display:block !important para o JS do Galleria não bugar. 
+   Apenas garantimos o visual da caixa. */
+.cover-carousel-tile {
+    min-height: 450px; /* Garante altura mínima para o JS calcular antes de carregar */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+/* Base elegante para as legendas */
+.cover-carousel-tile .galleria-info {
+    background: linear-gradient(transparent, rgba(15, 23, 42, 0.95) 70%) !important;
+    bottom: 0 !important; 
+    left: 0 !important; 
+    right: 0 !important;
+    width: 100% !important;
+    padding: 60px 24px 20px !important;
+    border: none !important;
+}
+
+.cover-carousel-tile .galleria-info-title {
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    font-family: 'Inter', sans-serif !important;
+    margin-bottom: 8px !important;
+}
+
+.cover-carousel-tile .galleria-info-description {
+    font-size: 1.05rem !important;
+    color: #cbd5e1 !important;
+}
+
+
+/* ===================================
+   COLEÇÃO DE NOTÍCIAS (CSS Grid Mágico)
+=================================== */
+
+.tile-noticias {
+    display: flex;
+    flex-direction: column; /* Separa os cartões de notícias um embaixo do outro */
+    gap: 24px;
+}
+
+/* O cartão vira uma grade com 2 colunas */
+.tile-noticias .collection-item {
+    display: grid !important;
+    grid-template-columns: 320px 1fr !important; /* Coluna 1: Imagem (320px), Coluna 2: Textos (o resto) */
+    grid-template-rows: auto auto 1fr auto !important; /* Linhas dinâmicas */
+    gap: 12px 24px !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04) !important;
+    align-items: start !important;
+    margin: 0 !important;
+    float: none !important;
+}
+
+/* A Imagem ocupa a Coluna 1 e expande por todas as linhas da grade */
+.tile-noticias .collection-item > a:first-child {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 / 5 !important; 
+    margin: 0 !important;
+}
+
+.tile-noticias .collection-item img {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    display: block !important;
+    transition: transform 0.3s;
+}
+
+.tile-noticias .collection-item:hover img {
+    transform: scale(1.03); /* Efeito bonito de zoom ao passar o mouse */
+}
+
+/* Títulos, Resumos e Datas ocupam a Coluna 2 */
+.tile-noticias .collection-item h2,
+.tile-noticias .collection-item .tileHeadline,
+.tile-noticias .collection-item h3 {
+    grid-column: 2 / 3 !important;
+    margin: 0 !important;
+    font-size: 1.35rem !important;
+    color: #1e3a8a !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+
+.tile-noticias .collection-item p {
+    grid-column: 2 / 3 !important;
+    margin: 0 !important;
+    font-size: 1rem !important;
+    color: #475569 !important;
+    line-height: 1.6 !important;
+}
+
+/* Botão Veja Mais do Tile */
+#content .tile-noticias .tile-footer {
+    grid-column: 2 / 3 !important;
+    text-align: right !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+
+
+/* --- RESPONSIVO MOBILE (Mantendo perfeito como você pediu) --- */
+@media (max-width: 900px) {
+    .tile-noticias .collection-item {
+        grid-template-columns: 1fr !important; /* Vira apenas 1 coluna */
+        grid-template-rows: auto !important;
+        padding: 16px !important;
+    }
+    
+    /* Imagem volta para o topo */
+    .tile-noticias .collection-item > a:first-child {
+        grid-column: 1 / 2 !important;
+        grid-row: 1 / 2 !important; 
+        margin-bottom: 16px !important;
+    }
+    
+    /* Textos descem para baixo da imagem */
+    .tile-noticias .collection-item h2,
+    .tile-noticias .collection-item .tileHeadline,
+    .tile-noticias .collection-item h3,
+    .tile-noticias .collection-item p,
+    #content .tile-noticias .tile-footer {
+        grid-column: 1 / 2 !important;
+    }
+    
+    .tile-noticias .collection-item img {
+        height: auto !important;
+    }
+}
+
+/* ===================================
+   BANNERS / IMAGENS NO CONTEÚDO
+   (hover: zoom + sombra – "traz pra frente")
+=================================== */
+
+#main-content a img,
+#content a img {
+    transition: transform .3s ease, box-shadow .3s ease, z-index 0s;
+    border-radius: 6px;
+}
+
+#main-content a:hover img,
+#content a:hover img {
+    transform: scale(1.06);
+    box-shadow: 0 12px 36px rgba(0,0,0,.3);
+    position: relative;
+    z-index: 20;
+}
+
+/* ===================================
+   BOTÕES DE IMAGEM 200×200
+   (imagens linkadas em tile de texto rico)
+
+   Plone gera: <p><a href="..."><img .../></a></p>
+   dentro do #main-content.
+
+   Regra: imagens quadradas (~200px) dentro de links
+   viram um grid responsivo com overlay de cor.
+=================================== */
+
+/* Wrapper automático – usamos flexbox no pai mais próximo que
+   contém vários parágrafos com imagem linkada */
+#main-content .tile-richtext .image-buttons-row,
+#main-content .image-buttons-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+    margin: 1.2em 0;
+}
+
+/* Cada botão (link com imagem ~200px) */
+#main-content a.image-button {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 12px;
+    flex: 0 0 calc(25% - 12px); /* 4 por linha em desktop */
+    max-width: 220px;
+    min-width: 140px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.12);
+    transition: transform .25s, box-shadow .25s;
+    text-decoration: none;
+}
+
+#main-content a.image-button img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform .3s;
+    border-radius: 0;
+}
+
+/* Overlay de cor – mude só esta variável para toda a linha */
+#main-content a.image-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 58, 138, 0.30); /* azul institucional 30% */
+    transition: background .25s;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+#main-content a.image-button:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 14px 32px rgba(0,0,0,.22);
+}
+
+#main-content a.image-button:hover::after {
+    background: rgba(37, 99, 235, 0.45); /* mais saturado no hover */
+}
+
+#main-content a.image-button:hover img {
+    transform: scale(1.08);
+}
+
+/*
+  COMO USAR:
+  No tile de texto rico, envolva os links de imagem com uma div
+  de classe "image-buttons-row":
+  <div class="image-buttons-row">
+    <a class="image-button" href="/pagina-destino">
+      <img src="minha-imagem.jpg" alt="Nome do botão">
+    </a>
+    ...
+  </div>
+
+  Se preferir sem alterar o HTML (só imagens soltas linkadas),
+  o CSS de hover genérico (#main-content a:hover img) já aplica
+  zoom e sombra automaticamente.
+*/
+
+/* ===================================
+   PORTLETS (colunas)
+=================================== */
+
+.portletHeader,
+dl.portlet dt.portletHeader {
+    background-color: #1e3a8a;
+    color: #fff;
+    border-bottom: #d8d8d8 1px solid;
+    font-weight: bold;
+    padding: 0;
+}
+
+.portlet .portletHeader > a,
+.portlet .portletHeader > span:nth-child(2) {
+    display: block;
+    color: #fff;
+    padding: 0.7em 1em;
+    font-size: 1em;
+}
+
+.portletHeader a,
+dl.portlet dt.portletHeader a {
+    color: #fff;
+    transition: background .15s;
+}
+
+.portlet .portletHeader > a:hover {
+    background: #2563eb;
+    color: #fff !important;
+}
+
+.portlet {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,.06);
+    margin-bottom: 20px;
+}
+
+aside dl,
+aside dd,
+aside ul {
+    padding: 0;
+    margin: 0;
+}
+
+aside a {
+    text-decoration: none;
+}
+
+/* Árvore de navegação */
+.portletNavigationTree ul,
+.nav-tree {
+    margin: 0;
+    list-style: none;
+}
+
+.portlet.portletNavigationTree .navTree .navTreeItem {
+    margin: 0;
+    list-style: none;
+}
+
+.portlet.portletNavigationTree .navTree > .navTreeItem {
+    border-bottom: rgba(26, 58, 100, 0.07) 1px solid;
+}
+
+.portlet.portletNavigationTree .navTree .navTreeItem a {
+    display: block;
+    padding: 0.75em 1em;
+    border-left: 0px solid transparent;
+    transition: all .15s;
+    line-height: initial;
+    color: #334155;
+    font-size: 14px;
+}
+
+.portlet.portletNavigationTree .navTree .navTreeItem a:hover {
+    border-left: 4px solid #2563eb;
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+.portlet.portletNavigationTree .navTree .navTreeItem a.navTreeCurrentItem {
+    border-left: 4px solid #1e3a8a;
+    background-color: rgba(30, 58, 138, .08);
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+.navTreeLevel1 .navTreeItem a { padding-left: 1.5em; }
+.navTreeLevel2 a { padding-left: 2em; }
+.navTreeLevel3 a { padding-left: 2.8em; }
+
+.nav-tree a {
+    display: block;
+    padding: 14px 18px;
+    text-decoration: none;
+    color: #334155;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background .2s, color .2s, padding-left .2s;
+    font-size: 14px;
+}
+
+.nav-tree a:hover {
+    background: #eff6ff;
+    color: #2563eb;
+    padding-left: 24px;
+}
+
+/* ===================================
+   TÍTULOS DE TILES
+=================================== */
+
+.tile-header h2,
+.tile-content h2,
+.documentFirstHeading {
+    margin-bottom: 0.5em;
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+
+#footer-total,
+footer {
+    margin-top: 50px;
+    background: #0f172a;
+    color: white;
+    font-size: 85%;
+}
+
+footer a,
+#footer-total a {
+    color: #93c5fd !important;
+}
+
+footer a:hover,
+#footer-total a:hover {
+    color: #ffffff !important;
+}
+
+.footer-item {
+    padding: 0 30px;
+}
+
+#footer-info {
+    padding-top: 2.5em;
+    padding-bottom: 1.5em;
+    outline: none;
+}
+
+#footer-colophon {
+    padding: 1.5rem 0;
+    font-size: 0;
+    text-align: center;
+    background-color: #080f1f;
+}
+
+.colophon-item {
+    display: inline-block;
+    max-width: 46%;
+    padding: 0 2%;
+    vertical-align: top;
+    position: relative;
+    font-size: 11px;
+}
+
+.colophon-item:first-child::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: rgba(255,255,255,.2);
+    right: 0;
+    top: 0;
+}
+
+.colophon-item a { font-weight: 700; }
+.colophon-item img { height: 32px; }
+.colophon-logo { height: 40px; }
+
+/* ===================================
+   ALTO CONTRASTE
+=================================== */
+
+body.high-contrast {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+body.high-contrast p,
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6,
+body.high-contrast span,
+body.high-contrast li,
+body.high-contrast div {
+    color: #fff !important;
+}
+
+body.high-contrast a {
+    color: #ffff00 !important;
+}
+
+body.high-contrast #topo,
+body.high-contrast .portlet,
+body.high-contrast #main-content,
+body.high-contrast footer,
+body.high-contrast #footer-total {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast #main-navigation {
+    background: #000 !important;
+}
+
+body.high-contrast #main-navigation a,
+body.high-contrast #main-navigation button {
+    color: #ffff00 !important;
+}
+
+body.high-contrast #portal-searchbox input {
+    background: #111 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}

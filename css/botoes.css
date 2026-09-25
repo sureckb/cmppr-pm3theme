@@ -1,0 +1,62 @@
+/* ===================================
+   BOTÕES 3:2 DOS TILES DE TEXTO RICO
+
+   Sobrescreve somente a antiga regra quadrada dos image-button.
+   As artes devem ser produzidas em 600 × 400 px, proporção 3:2.
+=================================== */
+
+#main-content .cover-richtext-tile .image-buttons-row-3x2 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: stretch;
+    gap: 16px !important;
+    width: 100%;
+    max-width: 1120px;
+    margin: 24px auto !important;
+}
+
+/* Quatro botões por linha no desktop, todos com o mesmo tamanho. */
+#main-content .cover-richtext-tile a.image-button-3x2 {
+    display: block !important;
+    flex: 0 1 calc(25% - 12px) !important;
+    width: auto !important;
+    min-width: 200px !important;
+    max-width: 260px !important;
+    aspect-ratio: 3 / 2 !important;
+    margin: 0 !important;
+    border-radius: 12px;
+}
+
+/* Remove o quadrado 1:1 e preserva integralmente a proporção da arte. */
+#main-content .cover-richtext-tile a.image-button-3x2 img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    aspect-ratio: 3 / 2 !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+@media (max-width: 900px) {
+    /* Duas colunas em tablets e celulares de largura intermediária. */
+    #main-content .cover-richtext-tile a.image-button-3x2 {
+        flex-basis: calc(50% - 8px) !important;
+        min-width: 180px !important;
+        max-width: 300px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Uma coluna garante que os textos internos da arte permaneçam legíveis. */
+    #main-content .cover-richtext-tile a.image-button-3x2 {
+        flex-basis: 100% !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+    }
+}
