@@ -1,6 +1,6 @@
-/*
+/**
 
- * Compatível com jQuery 1.x (Plone 4.3)
+Compatível com jQuery 1.x (Plone 4.3) */
 
 $(document).ready(function () {
 
